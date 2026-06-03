@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinship — Workplace Relationship Operating System</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Kinship is a premium Workplace Relationship Operating System helping employees form authentic human connections, accelerate new hire integration, and build trust.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%234F46E5'/><circle cx='40' cy='50' r='15' fill='white'/><circle cx='60' cy='50' r='15' fill='white' opacity='0.8'/><circle cx='50' cy='50' r='8' fill='%234F46E5'/></svg>">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ========================================================== -->
+  <!-- PUBLIC VIEWS (Landing, Login, Register)                    -->
+  <!-- ========================================================== -->
+  
+  <!-- Landing Page Container -->
+  <div id="view-landing" class="view-container public-view hidden">
+    <!-- Rendered dynamically by app.js -->
+  </div>
+
+  <!-- Auth Container (Login / Register) -->
+  <div id="view-auth" class="view-container public-view hidden">
+    <!-- Rendered dynamically by app.js -->
+  </div>
+
+  <!-- Onboarding Flow Container -->
+  <div id="view-onboarding" class="view-container public-view hidden">
+    <!-- Rendered dynamically by app.js -->
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- APPLICATION SHELL (For Authenticated Session)             -->
+  <!-- ========================================================== -->
+  <div id="app-shell" class="app-shell hidden">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="24" fill="#4F46E5"/>
+            <circle cx="38" cy="50" r="16" fill="white"/>
+            <circle cx="62" cy="50" r="16" fill="white" fill-opacity="0.8"/>
+            <circle cx="50" cy="50" r="8" fill="#4F46E5"/>
+          </svg>
+          <span class="logo-text">kinship</span>
+          <span class="badge badge-indigo text-xs">wros</span>
+        </div>
+      </div>
+      
+      <!-- Nav Links -->
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="#/dashboard" class="nav-item" id="nav-dashboard">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/people" class="nav-item" id="nav-people">
+              <i data-lucide="users"></i>
+              <span>Discovery</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/communities" class="nav-item" id="nav-communities">
+              <i data-lucide="compass"></i>
+              <span>Communities</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/events" class="nav-item" id="nav-events">
+              <i data-lucide="calendar"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/mentorship" class="nav-item" id="nav-mentorship">
+              <i data-lucide="award"></i>
+              <span>Accelerator</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">ADMINISTRATOR</div>
+        <ul>
+          <li>
+            <a href="#/analytics" class="nav-item" id="nav-analytics">
+              <i data-lucide="activity"></i>
+              <span>Connection Health</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer (User Info & Actions) -->
+      <div class="sidebar-footer">
+        <div class="user-profile-summary" id="sidebar-user-summary">
+          <!-- Rendered dynamically based on logged in user -->
+        </div>
+        <button class="btn btn-icon btn-ghost" id="btn-logout" title="Log Out">
+          <i data-lucide="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <main class="main-content">
+      <!-- Header bar for internal views -->
+      <header class="app-header">
+        <div class="header-left">
+          <h1 id="view-title" class="view-title">Dashboard</h1>
+          <p id="view-subtitle" class="view-subtitle">Fostering trust and authentic connection.</p>
+        </div>
+        <div class="header-right">
+          <!-- Notification Bell -->
+          <div class="notification-bell" id="bell-dropdown-trigger">
+            <button class="btn btn-icon btn-outline relative">
+              <i data-lucide="bell"></i>
+              <span class="notification-indicator"></span>
+            </button>
+            <!-- Dropdown contents loaded dynamically -->
+            <div class="dropdown-menu hidden" id="bell-dropdown">
+              <div class="dropdown-header">Notifications</div>
+              <div class="dropdown-list" id="bell-notifications-list">
+                <!-- Notifications injection -->
+              </div>
+            </div>
+          </div>
+          <!-- Quick Status Indicator -->
+          <div class="status-pill">
+            <span class="status-dot online"></span>
+            <span class="status-label">Online</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic App View Container -->
+      <div id="app-view-container" class="app-view-container">
+        <!-- Dashboard View -->
+        <div id="view-dashboard" class="app-view hidden"></div>
+        <!-- People Discovery View -->
+        <div id="view-people" class="app-view hidden"></div>
+        <!-- Communities View -->
+        <div id="view-communities" class="app-view hidden"></div>
+        <!-- Events View -->
+        <div id="view-events" class="app-view hidden"></div>
+        <!-- Mentorship / Accelerator View -->
+        <div id="view-mentorship" class="app-view hidden"></div>
+        <!-- HR Analytics View -->
+        <div id="view-analytics" class="app-view hidden"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- GLOBAL MODALS & OVERLAYS                                   -->
+  <!-- ========================================================== -->
+  <div id="global-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close"><i data-lucide="x"></i></button>
+      <div id="modal-content">
+        <!-- Content gets injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ========================================================== -->
+  <!-- APPLICATION SCRIPTS                                        -->
+  <!-- ========================================================== -->
+  <!-- We load our modules. Since we are in a browser, we use type="module" -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
